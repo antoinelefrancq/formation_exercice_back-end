@@ -7,6 +7,8 @@ const router = require('./app/routers');
 const auth = require('./middlewares/auth');
 //
 const errorHandlers = require('./middlewares/errorHandlers');
+const userConnected = require('./middlewares/userConnected');
+
 //
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,7 +25,7 @@ app.set('views', './app/views');
 
 app.use(express.static(path.join(__dirname, './assets')));
 
-
+app.use(userConnected)
 // Nos Routes
 app.use(router);
 // middleware 404

@@ -22,7 +22,8 @@ const sessionController = {
             const user = await User.findOne({
                 where:{
                     email
-                }
+                },
+                include:'role'
             })
             let error =""
             if (user){
@@ -31,9 +32,7 @@ const sessionController = {
                 if (match){
                     req.session.user = user;
                     delete req.session.user.password;
-                    res.locals.user = req.session.user;
-                    // !! Ne pas modifier cette ligne
-                    console.log(res.locals.user)
+                    res.locals.user=req.session.user
                     res.redirect('/');
                 }else {
                     error = {error:"Mot de passe incorrect"};
