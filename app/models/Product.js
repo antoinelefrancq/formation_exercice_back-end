@@ -12,5 +12,30 @@ class Product extends Sequelize.Model {}
  * price number
  * tableName: 'products',
  */
+ Product.init(
+    {
+        ref: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        description: {
+            type: DataTypes.TEXT,
+            allowNull: false,
+        },
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        price: DataTypes.NUMBER,  
+    },
+    {
+        sequelize,
+        tableName: 'products',
+    }
+);
 
 module.exports = Product;

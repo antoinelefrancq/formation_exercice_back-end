@@ -9,15 +9,15 @@ const catalogController = {
         try {
 
             // Étape 2 - Faire la requête ici, aller chercher la liste des produits avec Sequelize
-            const products = [];
+            const products = await Product.findAll();
 
             // Étape 4 - Faire la requête ici, aller chercher la liste catégories avec Sequelize
-            const categories = [];
+            const categories = await Category.findAll();
 
             // Ne pas modifier cette ligne
             res.render('shop', { 
                 categories,
-                products 
+                products, 
             });
 
         } catch (error) {
