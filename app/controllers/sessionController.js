@@ -32,7 +32,6 @@ const sessionController = {
                 if (match){
                     req.session.user = user;
                     delete req.session.user.password;
-                    res.locals.user=req.session.user
                     res.redirect('/');
                 }else {
                     error = {error:"Mot de passe incorrect"};
@@ -55,7 +54,7 @@ const sessionController = {
     logout: (req, res) => {
         // !! Votre code ici
         req.session.destroy();
-        
+
         res.redirect('/');
     },
 };
