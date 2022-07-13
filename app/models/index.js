@@ -7,13 +7,13 @@ const Role = require('./Role');
 // un produit a une catégorie
 Product.belongsTo(Category, {
     foreignKey: "category_id",
-    as: "products"
+    as: "category"
 });
 // Associer les produits aux catégories (as category)
 // réciproque : une catégorie concerne plusieurs produits
 Category.hasMany(Product, {
     foreignKey: "category_id",
-    as: "category"
+    as: "products"
 });
 
 Role.hasMany(User, {

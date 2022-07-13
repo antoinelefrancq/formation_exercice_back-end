@@ -17,7 +17,7 @@ const catalogController = {
             // Ne pas modifier cette ligne
             res.render('shop', { 
                 categories,
-                products, 
+                products 
             });
 
         } catch (error) {
@@ -29,12 +29,14 @@ const catalogController = {
     category: async (req, res) => {
 
         // Étape 6 - Récupérez l'id de la catégorie à afficher (params)
-
+        const catId = req.params.id;
         // Étape 6 - Récupérer la catégorie demandée avec les produits associés à cette catégorie
         // const category = ...;
-
+        const category = await Category.findByPk(catId,{
+            include:'products'
+        })
         res.render('category', { 
-            // category
+            category
         });
     },
 
