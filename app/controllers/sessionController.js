@@ -54,6 +54,8 @@ const sessionController = {
 
     logout: (req, res) => {
         // !! Votre code ici
+        req.session.destroy();
+        
         res.redirect('/');
     },
 };
