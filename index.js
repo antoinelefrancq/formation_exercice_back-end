@@ -4,6 +4,7 @@ require('dotenv').config();
 const session = require('express-session');
 const path = require('path');
 const router = require('./app/routers');
+const auth = require('./middlewares/auth');
 //
 const errorHandlers = require('./middlewares/errorHandlers');
 //
@@ -21,6 +22,7 @@ app.set('view engine', 'ejs');
 app.set('views', './app/views');
 
 app.use(express.static(path.join(__dirname, './assets')));
+
 
 // Nos Routes
 app.use(router);
