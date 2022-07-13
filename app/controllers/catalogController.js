@@ -43,15 +43,7 @@ const catalogController = {
     product: async (req, res) => {
         try {
             const { id } = req.params;
-
-            // Bonus - Récupérez le produit demandé en base de données.
-            const product = {
-                id: id,
-                title: 'title',
-                description: 'description',
-                price: 1500,
-            };
-
+            const product = await Product.findByPk(id)
             res.render('product', { product });
         } catch (error) {
             console.log(error);
